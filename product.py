@@ -12,4 +12,8 @@ while True:
 print(products)
 
 #第一個[0]是大清單的第一筆，第二個[0]是小清單的第一筆
-products[0][0]
+#products[0][0]
+
+#顯示products大清單內小清單p的各項
+for p in products:
+    print(p[0], '的價格為', p[1])
