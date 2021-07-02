@@ -1,13 +1,19 @@
+import os #operating system
+
 products = [] #大清單
 
-#讀取舊檔案
-with open('products.csv', 'r', encoding='utf-8') as f:
-    for line in f:
-        if '商品,價格' in line:
-            continue
-        name, price = line.strip().split(',') #忽略/n並用逗號切割
-        products.append([name, price])
-print(products)
+if os.path.isfile('products.csv'): #檢查檔案
+    print('有檔案')
+    #讀取舊檔案
+    with open('products.csv', 'r', encoding='utf-8') as f:
+        for line in f:
+            if '商品,價格' in line:
+                continue
+            name, price = line.strip().split(',') #忽略/n並用逗號切割
+            products.append([name, price])
+    print(products)
+else:
+    print('沒檔案')
 
 while True:
     name = input('請輸入商品名稱：')
